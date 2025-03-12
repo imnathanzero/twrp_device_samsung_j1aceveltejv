@@ -14,6 +14,13 @@
 # limitations under the License.
 #
 
-LOCAL_PATH := device/samsung/j1acevelte
+$(call inherit-product, vendor/omni/config/common.mk)
+$(call inherit-product, build/target/product/embedded.mk)
 
-PRODUCT_MAKEFILES := $(LOCAL_PATH)/omni_j1acevelte.mk
+$(call inherit-product, build/target/product/languages_small.mk)
+
+PRODUCT_DEVICE       := j1acevelte
+PRODUCT_NAME         := omni_j1acevelte
+PRODUCT_BRAND        := samsung
+PRODUCT_MODEL        := SM-J111F
+PRODUCT_MANUFACTURER := samsung
