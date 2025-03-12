@@ -17,17 +17,17 @@
 LOCAL_PATH := device/samsung/j1acevelte
 
 # Platform
-TARGET_ARCH                  := arm
-TARGET_ARCH_VARIANT          := armv7-a-neon
-TARGET_CPU_VARIANT           := generic
-TARGET_CPU_ABI               := armeabi-v7a
-TARGET_CPU_ABI2              := armeabi
-TARGET_BOOTLOADER_BOARD_NAME := SC9830I
+TARGET_ARCH := arm
+TARGET_ARCH_VARIANT := armv7-a-neon
+TARGET_CPU_ABI := armeabi-v7a
+TARGET_CPU_ABI2 := armeabi
+TARGET_CPU_SMP := true
+TARGET_CPU_VARIANT := cortex-a7
 TARGET_BOARD_PLATFORM        := sc8830
-TARGET_BOARD_PLATFORM_GPU    := mali-400
-BOARD_VENDOR                 := samsung
 
 # Bootloader
+TARGET_BOOTLOADER_BOARD_NAME := SC9830I
+TARGET_NO_BOOTLOADER := true
 TW_NO_REBOOT_BOOTLOADER     := true
 TW_HAS_DOWNLOAD_MODE        := true
 BOARD_HAS_NO_MISC_PARTITION := true
@@ -37,7 +37,7 @@ TARGET_OTA_ASSERT_DEVICE := j1acevelte,SM-J111F
 
 # Filesystem
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 16777216
-BOARD_FLASH_BLOCK_SIZE             := 1024
+BOARD_FLASH_BLOCK_SIZE := 131072 # (BOARD_KERNEL_PAGESIZE * 64)
 TARGET_USERIMAGES_USE_EXT4         := true
 BOARD_HAS_NO_REAL_SDCARD           := true
 RECOVERY_SDCARD_ON_DATA            := true
@@ -62,11 +62,20 @@ BOARD_MKBOOTIMG_ARGS   += --ramdisk_offset $(BOARD_RAMDISK_OFFSET)
 BOARD_MKBOOTIMG_ARGS   += --second_offset $(BOARD_SECOND_OFFSET)
 BOARD_MKBOOTIMG_ARGS   += --tags_offset $(BOARD_TAGS_OFFSET)
 
-# Recovery
-RECOVERY_GRAPHICS_USE_LINELENGTH := true
+# Display
+TW_MAX_BRIGHTNESS := 255
+TW_DEFAULT_BRIGHTNESS := 162
+RECOVERY_GRAPHICS_FORCE_SINGLE_BUFFER := true
+TW_CUSTOM_CPU_TEMP_PATH := "/sys/class/thermal/thermal_zone1/temp"
+BOARD_RECOVERY_SWIPE := true
+TW_MTP_DEVICE := "/dev/mtp_usb"
+TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/20200000.usb/gadget/lun%d/file"
+TW_BRIGHTNESS_PATH := "/sys/class/backlight/panel/brightness"
+TARGET_RECOVERY_PIXEL_FORMAT := "ABGR_8888"
 
 # TeamWin Recovery
-TW_THEME                := portrait_hdpi
+TW_EXCLUDE_SUPERSU := true
+TW_EXCLUDE_TWRPAPP := true
 TW_EXCLUDE_TZDATA       := false
 TW_EXCLUDE_NANO         := false
 TW_EXCLUDE_BASH         := false

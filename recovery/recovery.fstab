@@ -1,0 +1,38 @@
+#
+# Copyright (C) 2022 TeamWin Recovery Project
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+
+#<src>                                              <mnt_point>   <type>  <mnt_flags and options>     <fs_mgr_flags>
+/dev/block/mmcblk1p1                               /sdcard      vfat            default              recoveryonly
+/dev/block/platform/sdio_emmc/by-name/SYSTEM       /system      ext4            default              recoveryonly
+/dev/block/platform/sdio_emmc/by-name/HIDDEN       /preload     ext4            default              recoveryonly
+/dev/block/platform/sdio_emmc/by-name/userdata     /data        ext4            default              wait,length=-16384
+/dev/block/platform/sdio_emmc/by-name/CACHE        /cache       ext4            default              recoveryonly
+/dev/block/platform/sdio_emmc/by-name/efs          /efs         ext4            default              recoveryonly
+/dev/block/platform/sdio_emmc/by-name/prodnv       /productinfo ext4            default              recoveryonly
+/dev/block/platform/sdio_emmc/by-name/KERNEL       /boot        emmc            default              recoveryonly
+/dev/block/platform/sdio_emmc/by-name/RECOVERY     /recovery    emmc            default              recoveryonly
+/dev/block/platform/sdio_emmc/by-name/l_modem      /l_modem     emmc            default              recoveryonly
+/dev/block/platform/sdio_emmc/by-name/l_ldsp       /l_ldsp      emmc            default              recoveryonly
+/dev/block/platform/sdio_emmc/by-name/l_gdsp       /l_gdsp      emmc            default              recoveryonly
+/dev/block/platform/sdio_emmc/by-name/PERSDATA     /persdata    ext4            default              recoveryonly
+/dev/block/platform/sdio_emmc/by-name/pm_sys       /pmsys	    emmc	        default            	 recoveryonly 
+/dev/block/platform/sdio_emmc/by-name/l_warm       /l_warm      emmc            default              recoveryonly 
+/dev/block/platform/sdio_emmc/by-name/l_fixnv2     /nvitem      emmc            default              recoveryonly 
+
+
+
+
+
