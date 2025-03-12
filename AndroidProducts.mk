@@ -14,4 +14,4 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 
-PRODUCT_MAKEFILES := $(LOCAL_DIR)/omni_j3xlte.mk
+PRODUCT_MAKEFILES := $(LOCAL_DIR)/omni_j1aceveltejv.mk
